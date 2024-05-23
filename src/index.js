@@ -21,7 +21,7 @@ app.use('/users/user-roles', userRolesRoutes)
 
 // Domain Response
 app.get('/', (req, res) => {
-    res.status(200).send('<h1>Good Response, Enjoy Designing Masbro</h1>');
+    res.status(200).send('<h1>High King Api, is ready to use!</h1>');
 });
 
 app.listen(PORT, () => {
