@@ -131,9 +131,17 @@ const loginUsers = async (req, res) => {
         
         // Check if email is verified
         if (userCredential.user.emailVerified) {
+            const [ data ] = await UsersModel.getCurrentUser(auth.currentUser.uid);
+            // Convert UTC timestamps to UTC+7
+            const dataWithLocalTime = data.map(data => ({
+                ...data,
+                created_at: moment.utc(data.created_at).tz('Asia/Bangkok').format(),
+                updated_at: moment.utc(data.updated_at).tz('Asia/Bangkok').format()
+            }));
             res.status(201).json({
                 status: 201,
-                message: 'User sign in successfull, you can use users/get-current-user to get your data',
+                message: `Successfully login an user with uid: ${auth.currentUser.uid}`,
+                data: dataWithLocalTime
             });
         } else {
             // If email is not verified, return 403
