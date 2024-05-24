@@ -12,7 +12,7 @@ router.post('/register', UserController.registerUsers);
 // Login - POST 
 router.post('/login', UserController.loginUsers);
 
-// Login - POST 
+// Get Current User - Get 
 router.get('/get-current-user', UserController.currentUsers);
 
 // Logout - GET
