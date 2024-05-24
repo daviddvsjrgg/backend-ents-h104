@@ -21,9 +21,9 @@ app.use('/users/user-roles', userRolesRoutes)
 
 // Domain Response
 app.get('/', (req, res) => {
-    res.status(200).send('<h1>High King Api, is ready to use!</h1>');
+    res.status(200).send('<h1>HighKing Api, is ready to use!</h1>');
 });
 
 app.listen(PORT, () => {
-    console.log(`Server running port ${PORT}`)
+    console.log(`Server running`)
 })
